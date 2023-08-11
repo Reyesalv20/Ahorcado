@@ -16,6 +16,10 @@ public class JuegoAhorcadoAzar extends JuegoAhorcadoBase {
        
     }
 
+    public ArrayList<String> getDefinidas() {
+        return definidas;
+    }
+
     public void setIntentos(int intentos) {
         this.intentos = intentos;
     }

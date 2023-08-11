@@ -60,6 +60,11 @@ public class menu extends javax.swing.JFrame {
 
         admin.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         admin.setText("Administrar");
+        admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                adminMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -72,7 +77,7 @@ public class menu extends javax.swing.JFrame {
                     .addComponent(fijo, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(241, 241, 241))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(253, 253, 253)
+                .addGap(255, 255, 255)
                 .addComponent(admin)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -83,9 +88,9 @@ public class menu extends javax.swing.JFrame {
                 .addComponent(azar)
                 .addGap(36, 36, 36)
                 .addComponent(fijo)
-                .addGap(36, 36, 36)
+                .addGap(33, 33, 33)
                 .addComponent(admin)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,6 +122,11 @@ public class menu extends javax.swing.JFrame {
         f.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_fijoMouseClicked
+
+    private void adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminMouseClicked
+       AdminPalabrasSecretas as=new AdminPalabrasSecretas(todas);
+        admin ad = new admin(as);
+    }//GEN-LAST:event_adminMouseClicked
 
     /**
      * @param args the command line arguments

@@ -5,7 +5,18 @@ import java.util.ArrayList;
 
 public class AdminPalabrasSecretas {
   
-   ArrayList<String> Palabrasecretas;   
+   ArrayList<String> Palabrasecretas;  
+   
+   public AdminPalabrasSecretas(ArrayList<String> Palabrasecretas){
+       
+       
+       
+   }
+
+    public ArrayList<String> getPalabrasecretas() {
+        return Palabrasecretas;
+    }
+   
     
     public void agregarpalabras(String palabagreg){
         

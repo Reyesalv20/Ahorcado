@@ -1,21 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Juego;
 
+import java.awt.List;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
 public class admin extends javax.swing.JFrame {
-ArrayList<String> definidas; 
-String[] definidasArray = definidas.toArray(new String[0]);
-AdminPalabrasSecretas objadm=new AdminPalabrasSecretas();
-JuegoAhorcadoAzar objazar=new JuegoAhorcadoAzar(definidas);
-int cont=0;
 
-    public admin() {
+
+AdminPalabrasSecretas obj;
+private ArrayList<String> array= obj.getPalabrasecretas();
+String[] opciones = array.toArray(new String[0]);
+    public admin(AdminPalabrasSecretas obj) {
         initComponents();
         
        
@@ -126,10 +123,10 @@ int cont=0;
 //borrar palabra 
 
     
-   String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,definidasArray,definidasArray[0]);
+   String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,opciones,opciones[0]);
 
 
-
+     
 
 
 
@@ -152,7 +149,7 @@ int cont=0;
         
  
    
-    String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,definidasArray,definidasArray[0]);
+    String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,opciones,opciones[0]);
         
     }//GEN-LAST:event_fijaMouseClicked
 
@@ -196,7 +193,7 @@ int cont=0;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new admin().setVisible(true);
+                new admin(null).setVisible(true);
             }
         });
     }
