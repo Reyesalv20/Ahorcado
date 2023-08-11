@@ -9,25 +9,28 @@ import java.util.Random;
 
 public class JuegoAhorcadoAzar extends JuegoAhorcadoBase {
     ArrayList<String> definidas; //arraylist de palabras ya existentes
-    private String palabraAdivinar;
-
+    int intentosRestantes;
     public JuegoAhorcadoAzar(ArrayList<String> definidas) {
         this.definidas = definidas;
+        intentos = INTENTOS_DEFAULT;
+        intentosRestantes = intentos;
        
     }
 
-    public void setPalabraAdivinar(String palabraAdivinar) {
-        this.palabraAdivinar = palabraAdivinar;
+    public void setIntentos(int intentos) {
+        this.intentos = intentos;
     }
     
     public String inicializarPalabraSecreta() {
         Random rand = new Random();
-        return definidas.get(rand.nextInt(0, definidas.size()));
+        palabraSecreta = definidas.get(rand.nextInt(0, definidas.size()));
+        esconderPalabra();
+        return palabraSecreta;
     }
 
     @Override
     public void jugar() {
-        Juego.azar azar = new Juego.azar(this);
+        azar Azar = new azar(this);
     }
     
 }

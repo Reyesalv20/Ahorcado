@@ -6,14 +6,18 @@ package Juego;
 
 import javax.swing.JOptionPane;
 
-
+import java.util.ArrayList;
 public class azar extends javax.swing.JFrame {
 
+    JuegoAhorcadoAzar juego;
 
-    public azar() {
+    public azar(JuegoAhorcadoAzar juego) {
+        this.juego = juego;
         initComponents();
+        juego.inicializarPalabraSecreta();
+        System.out.println(juego.palabraSecreta);
+        palabraActualInput.setText(juego.palabraActual);
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -24,7 +28,7 @@ public class azar extends javax.swing.JFrame {
         confirmar_letra = new javax.swing.JButton();
         oportunidades = new javax.swing.JLabel();
         letraIngresar = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        palabraActualInput = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -52,8 +56,8 @@ public class azar extends javax.swing.JFrame {
         letraIngresar.setForeground(new java.awt.Color(255, 255, 255));
         letraIngresar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
+        palabraActualInput.setEditable(false);
+        palabraActualInput.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,7 +77,7 @@ public class azar extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField1)
+                    .addComponent(palabraActualInput)
                     .addComponent(confirmar_letra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(89, 89, 89))
         );
@@ -85,7 +89,7 @@ public class azar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(letraIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(palabraActualInput, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -112,19 +116,43 @@ public class azar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmar_letraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmar_letraMouseClicked
-        String letra= letraIngresar.getText().toUpperCase();
-        if(letra.length()>1){
+        String letra = letraIngresar.getText().toUpperCase();
+        if (letra.length() > 1) {
             JOptionPane.showMessageDialog(null, "Solo ingrese UNA letra", "AHORCADO AZAR", JOptionPane.WARNING_MESSAGE);
-        }else if(letra.isEmpty()){
+        } else if (letra.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ingrese una letra", "AHORCADO AZAR", JOptionPane.WARNING_MESSAGE);
-        }else{
+        } else {
             letraIngresar.setText("");
-            char letraIngresada =letra.charAt(0);
+            char letraIngresada = letra.charAt(0);
+            
+            // Verificar si se tiene que quitarle un turno o no
+            if (!juego.verificarLetra(letraIngresada)) {
+                juego.intentosRestantes--;
+                
+                if (juego.intentosRestantes == 0) {
+                JOptionPane.showMessageDialog(null, "Te has quedado sin turnos.\nLa palabra a adivinar era: " + juego.palabraSecreta);
+                dispose();
+                return;
+                }
+            }
+            
+            
+            System.out.println("PALABRA ACTUAL: " + juego.palabraActual);
+            juego.actualizarPalabraActual(letraIngresada);
+            System.out.println("NEW: " + juego.palabraActual);
+            palabraActualInput.setText(juego.palabraActual);
         }
+        
+        if (juego.hasGanado()) {
+            JOptionPane.showMessageDialog(null, "HAS GANADO!");
+            dispose();
+            return;
+        }
+                
     }//GEN-LAST:event_confirmar_letraMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        menu mn= new menu();
+        menu mn = new menu();
         mn.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
@@ -159,7 +187,11 @@ public class azar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new azar().setVisible(true);
+                ArrayList<String> palabras = new ArrayList();
+                palabras.add("HOLA");
+                palabras.add("ADIOS");
+                JuegoAhorcadoAzar juego = new JuegoAhorcadoAzar(palabras);
+                new azar(juego).setVisible(true);
             }
         });
     }
@@ -168,8 +200,8 @@ public class azar extends javax.swing.JFrame {
     private javax.swing.JButton confirmar_letra;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField letraIngresar;
     private javax.swing.JLabel oportunidades;
+    private javax.swing.JTextField palabraActualInput;
     // End of variables declaration//GEN-END:variables
 }
