@@ -5,71 +5,71 @@
 package Swing;
 
 
-public class menu extends javax.swing.JFrame {
+public class admin extends javax.swing.JFrame {
 
 
-    public menu() {
+    public admin() {
         initComponents();
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        azar = new javax.swing.JButton();
-        fijo = new javax.swing.JButton();
-        admin = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        confirmar_letra = new javax.swing.JButton();
+        confirmar_letra1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        azar.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        azar.setText("Jugar Modo Azar");
-        azar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        confirmar_letra.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        confirmar_letra.setText("Borrar todo");
+        confirmar_letra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                azarMouseClicked(evt);
+                confirmar_letraMouseClicked(evt);
             }
         });
 
-        fijo.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        fijo.setText("Jugar Modo Fijo");
-        fijo.addMouseListener(new java.awt.event.MouseAdapter() {
+        confirmar_letra1.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        confirmar_letra1.setText("Añadir");
+        confirmar_letra1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fijoMouseClicked(evt);
+                confirmar_letra1MouseClicked(evt);
             }
         });
-
-        admin.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        admin.setText("Administrar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(222, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(413, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(azar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(fijo, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(241, 241, 241))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(253, 253, 253)
-                .addComponent(admin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(confirmar_letra, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(confirmar_letra1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(99, 99, 99))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(azar)
-                .addGap(36, 36, 36)
-                .addComponent(fijo)
-                .addGap(36, 36, 36)
-                .addComponent(admin)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addGap(121, 121, 121)
+                .addComponent(confirmar_letra)
+                .addGap(39, 39, 39)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
+                .addComponent(confirmar_letra1)
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,21 +84,15 @@ public class menu extends javax.swing.JFrame {
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void azarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_azarMouseClicked
-        azar az =new azar();
-        az.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_azarMouseClicked
+    private void confirmar_letraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmar_letraMouseClicked
+       
+    }//GEN-LAST:event_confirmar_letraMouseClicked
 
-    private void fijoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fijoMouseClicked
-
-        fijo f=new fijo();
-        f.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_fijoMouseClicked
+    private void confirmar_letra1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmar_letra1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmar_letra1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -117,28 +111,28 @@ public class menu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new menu().setVisible(true);
+                new admin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton admin;
-    private javax.swing.JButton azar;
-    private javax.swing.JButton fijo;
+    private javax.swing.JButton confirmar_letra;
+    private javax.swing.JButton confirmar_letra1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
