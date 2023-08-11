@@ -6,14 +6,27 @@ package Juego;
 
 import Juego.fijo;
 import Juego.azar;
+import java.util.ArrayList;
 
 
 public class menu extends javax.swing.JFrame {
-
+    ArrayList<String> todas;  
 
     public menu() {
         initComponents();
-    }
+        todas= new ArrayList<>();
+        todas.add("MAÑANA");
+        todas.add("PARAGUAY");
+        todas.add("VAMONOS");
+        todas.add("PANTALLA");
+        todas.add("PIZZA");
+        todas.add("ESTOCOLMO");
+        todas.add("GITHUB");
+        todas.add("PANTALLA");
+        JuegoAhorcadoAzar ja=new JuegoAhorcadoAzar(todas);
+        System.out.println(todas);
+    }                               
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -91,9 +104,11 @@ public class menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void azarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_azarMouseClicked
-        azar az =new azar();
+                                         
+        JuegoAhorcadoAzar ah =new JuegoAhorcadoAzar(todas);
+        azar az =new azar(ah);
         az.setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false);                               
     }//GEN-LAST:event_azarMouseClicked
 
     private void fijoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fijoMouseClicked
