@@ -1,14 +1,16 @@
 package Juego;
 
 public abstract class JuegoAhorcadoFijo extends JuegoAhorcadoBase {
-
-    String palabrafija;
-
-    public JuegoAhorcadoFijo(String palabrafija) {
-
-        this.palabrafija = palabrafija;
-
+    public JuegoAhorcadoFijo(String palabraFija) {
+        palabraSecreta = palabraFija;
+        esconderPalabra();
     }
+
+    public String inicializarPalabraSecreta() {
+        return palabraSecreta;
+    }
+    
+    
 
 }
 
