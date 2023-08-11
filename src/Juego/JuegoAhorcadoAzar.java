@@ -12,8 +12,7 @@ public class JuegoAhorcadoAzar extends JuegoAhorcadoBase {
     int intentosRestantes;
     public JuegoAhorcadoAzar(ArrayList<String> definidas) {
         this.definidas = definidas;
-        intentos = INTENTOS_DEFAULT;
-        intentosRestantes = intentos;
+        intentosRestantes = INTENTOS_DEFAULT;
        
     }
 
