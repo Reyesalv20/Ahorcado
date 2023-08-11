@@ -26,11 +26,13 @@ public class fijo extends javax.swing.JFrame {
         oportunidades = new javax.swing.JLabel();
         letraIngresar = new javax.swing.JTextField();
         palabraActualInput = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         jButton1.setText("Regresar");
@@ -39,6 +41,7 @@ public class fijo extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, -1, -1));
 
         confirmar_letra.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         confirmar_letra.setText("Ingresar Letra");
@@ -47,55 +50,21 @@ public class fijo extends javax.swing.JFrame {
                 confirmar_letraMouseClicked(evt);
             }
         });
+        jPanel1.add(confirmar_letra, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
+        jPanel1.add(oportunidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, 170, 204));
 
         letraIngresar.setBackground(new java.awt.Color(102, 102, 0));
         letraIngresar.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
         letraIngresar.setForeground(new java.awt.Color(255, 255, 255));
         letraIngresar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(letraIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 87, 47));
 
         palabraActualInput.setEditable(false);
         palabraActualInput.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
+        jPanel1.add(palabraActualInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 191, 43));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(oportunidades, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(115, 115, 115))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(letraIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(159, 159, 159))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(palabraActualInput)
-                    .addComponent(confirmar_letra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(89, 89, 89))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(oportunidades, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(letraIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(palabraActualInput, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(22, 22, 22))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(confirmar_letra)
-                        .addGap(53, 53, 53))))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juego/Imaganes/2 2.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,6 +157,7 @@ public class fijo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmar_letra;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField letraIngresar;
     private javax.swing.JLabel oportunidades;

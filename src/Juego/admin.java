@@ -30,10 +30,12 @@ String[] opciones = array.toArray(new String[0]);
         añadir = new javax.swing.JButton();
         fija = new javax.swing.JButton();
         menu = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         borrar.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         borrar.setText("Borrar palabra");
@@ -42,6 +44,7 @@ String[] opciones = array.toArray(new String[0]);
                 borrarMouseClicked(evt);
             }
         });
+        jPanel1.add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 212, -1));
 
         añadir.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         añadir.setText("Añadir Palabra");
@@ -55,6 +58,7 @@ String[] opciones = array.toArray(new String[0]);
                 añadirActionPerformed(evt);
             }
         });
+        jPanel1.add(añadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 212, -1));
 
         fija.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         fija.setText("Palabra fija");
@@ -63,6 +67,7 @@ String[] opciones = array.toArray(new String[0]);
                 fijaMouseClicked(evt);
             }
         });
+        jPanel1.add(fija, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 212, -1));
 
         menu.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         menu.setText("Regresar");
@@ -71,49 +76,22 @@ String[] opciones = array.toArray(new String[0]);
                 menuMouseClicked(evt);
             }
         });
+        jPanel1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1016, 794, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(209, 209, 209)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(añadir, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-                    .addComponent(fija, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 232, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(menu)
-                .addGap(15, 15, 15))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
-                .addComponent(borrar)
-                .addGap(28, 28, 28)
-                .addComponent(fija)
-                .addGap(31, 31, 31)
-                .addComponent(añadir)
-                .addGap(109, 109, 109)
-                .addComponent(menu)
-                .addGap(29, 29, 29))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juego/Imaganes/3.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -202,6 +180,7 @@ String[] opciones = array.toArray(new String[0]);
     private javax.swing.JButton añadir;
     private javax.swing.JButton borrar;
     private javax.swing.JButton fija;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton menu;
     // End of variables declaration//GEN-END:variables

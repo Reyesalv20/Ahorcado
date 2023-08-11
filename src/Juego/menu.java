@@ -36,11 +36,14 @@ public class menu extends javax.swing.JFrame {
         azar = new javax.swing.JButton();
         fijo = new javax.swing.JButton();
         admin = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         azar.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         azar.setText("Jugar Modo Azar");
@@ -49,6 +52,7 @@ public class menu extends javax.swing.JFrame {
                 azarMouseClicked(evt);
             }
         });
+        jPanel1.add(azar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
 
         fijo.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         fijo.setText("Jugar Modo Fijo");
@@ -57,6 +61,7 @@ public class menu extends javax.swing.JFrame {
                 fijoMouseClicked(evt);
             }
         });
+        jPanel1.add(fijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
 
         admin.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         admin.setText("Administrar");
@@ -65,33 +70,11 @@ public class menu extends javax.swing.JFrame {
                 adminMouseClicked(evt);
             }
         });
+        jPanel1.add(admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 15, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(222, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(azar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(fijo, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(241, 241, 241))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(255, 255, 255)
-                .addComponent(admin)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(azar)
-                .addGap(36, 36, 36)
-                .addComponent(fijo)
-                .addGap(33, 33, 33)
-                .addComponent(admin)
-                .addContainerGap(163, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juego/Imaganes/1.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,6 +151,8 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JButton admin;
     private javax.swing.JButton azar;
     private javax.swing.JButton fijo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
