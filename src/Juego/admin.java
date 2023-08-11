@@ -4,12 +4,23 @@
  */
 package Juego;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 
 public class admin extends javax.swing.JFrame {
-
+ArrayList<String> definidas; 
+String[] definidasArray = definidas.toArray(new String[0]);
+AdminPalabrasSecretas objadm=new AdminPalabrasSecretas();
+JuegoAhorcadoAzar objazar=new JuegoAhorcadoAzar(definidas);
+int cont=0;
 
     public admin() {
         initComponents();
+        
+       
+        
+        
     }
 
 
@@ -20,8 +31,6 @@ public class admin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         borrar = new javax.swing.JButton();
         añadir = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listado = new javax.swing.JTextArea();
         fija = new javax.swing.JButton();
         menu = new javax.swing.JButton();
 
@@ -38,16 +47,17 @@ public class admin extends javax.swing.JFrame {
         });
 
         añadir.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        añadir.setText("Añadir");
+        añadir.setText("Añadir Palabra");
         añadir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 añadirMouseClicked(evt);
             }
         });
-
-        listado.setColumns(20);
-        listado.setRows(5);
-        jScrollPane1.setViewportView(listado);
+        añadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                añadirActionPerformed(evt);
+            }
+        });
 
         fija.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         fija.setText("Palabra fija");
@@ -70,43 +80,39 @@ public class admin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGap(209, 209, 209)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(añadir, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                     .addComponent(fija, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(55, 55, 55))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                    .addComponent(borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 232, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(menu)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(borrar)
-                        .addGap(102, 102, 102)
-                        .addComponent(fija)
-                        .addGap(101, 101, 101)
-                        .addComponent(añadir))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addContainerGap(171, Short.MAX_VALUE)
+                .addComponent(borrar)
+                .addGap(28, 28, 28)
+                .addComponent(fija)
+                .addGap(31, 31, 31)
+                .addComponent(añadir)
+                .addGap(109, 109, 109)
                 .addComponent(menu)
-                .addGap(17, 17, 17))
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +123,24 @@ public class admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void borrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarMouseClicked
-       
+//borrar palabra 
+
+    
+   String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,definidasArray,definidasArray[0]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }//GEN-LAST:event_borrarMouseClicked
 
     private void añadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_añadirMouseClicked
@@ -125,7 +148,12 @@ public class admin extends javax.swing.JFrame {
     }//GEN-LAST:event_añadirMouseClicked
 
     private void fijaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fijaMouseClicked
-        // TODO add your handling code here:
+        // Palabra fija
+        
+ 
+   
+    String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,definidasArray,definidasArray[0]);
+        
     }//GEN-LAST:event_fijaMouseClicked
 
     private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
@@ -133,6 +161,10 @@ public class admin extends javax.swing.JFrame {
         mn.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_menuMouseClicked
+
+    private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_añadirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,8 +206,6 @@ public class admin extends javax.swing.JFrame {
     private javax.swing.JButton borrar;
     private javax.swing.JButton fija;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea listado;
     private javax.swing.JButton menu;
     // End of variables declaration//GEN-END:variables
 }
