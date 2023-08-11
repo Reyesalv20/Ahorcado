@@ -27,7 +27,7 @@ public class JuegoAhorcadoAzar extends JuegoAhorcadoBase {
 
     @Override
     public void jugar() {
-        Swing.azar azar = new Swing.azar(this);
+        Juego.azar azar = new Juego.azar(this);
     }
     
 }
