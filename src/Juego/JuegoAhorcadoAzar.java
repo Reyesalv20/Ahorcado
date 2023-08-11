@@ -10,29 +10,52 @@ import java.util.Random;
 public class JuegoAhorcadoAzar extends JuegoAhorcadoBase {
     ArrayList<String> definidas;
     private String palabra;
-    
-    private int posicionRandom(int min, int max) {
-        Random random=new Random();
-        return random.nextInt(max-min+1)+min;
+
+    public JuegoAhorcadoAzar(String palabra) {
+        definidas.add("MAÑANA");
+        definidas.add("JUEVES");
+        definidas.add("ALMUERZO");
+        definidas.add("PARAGUAY");
+        definidas.add("GITHUB");
+        definidas.add("BUSCADOR");     
+        definidas.add("TELEGRAFO");
+        definidas.add("RADIO");
+        definidas.add("NIÑERA");
+        definidas.add("SILICONA");
+        this.palabra = palabra;
     }
-    
-    public String palabraAcar(){
-        definidas.remove(palabra);
-        return palabra;
+    public void añadir(String palabra) {
+        definidas.add(palabra);
+        
+    }
+    private int posicionRandom(int min, int max) {
+        Random rand=new Random();
+        return rand.nextInt(max-min+1)+min;
+    }
+    public String palabraAzar(){
+        if(!definidas.isEmpty()){
+            for (int i = 0; i < definidas.size(); i++) {
+                int index = posicionRandom(0,10);
+                return definidas.get(index);
+            }
+        }
+        return "";
     }
     @Override
-    public void inicializarPalabraSecreta() {
-        
+    public String inicializarPalabraSecreta() {
+        if(!definidas.isEmpty()){
+            palabraAzar();
+            for (int i = 0; i < palabraAzar().length(); i++) {
+                return "_";
+            }
+        }
+        return null;
     }
 
     @Override
     public boolean jugar() {
+        
         return true;
     }
     
 }
-/*
-4. Clase JuegoAhorcadoAzar:
-En esta clase, define un conjunto de palabras posibles y selecciona una al azar para que los jugadores adivinen. 
-Implementa los métodos abstractos de manera coherente.
-*/

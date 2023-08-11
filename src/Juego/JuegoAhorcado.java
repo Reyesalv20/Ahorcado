@@ -9,6 +9,6 @@ package Juego;
  * @author Jorge Hernandez
  */
 public interface JuegoAhorcado {
-    void inicializarPalabraSecreta();
+    String inicializarPalabraSecreta();
     boolean jugar();
 }
