@@ -117,8 +117,9 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_azarMouseClicked
 
     private void fijoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fijoMouseClicked
-
-        fijo f=new fijo();
+        String palabra = "VACIO";
+        JuegoAhorcadoFijo ah =new JuegoAhorcadoFijo(palabra);
+        fijo f=new fijo(ah);
         f.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_fijoMouseClicked
