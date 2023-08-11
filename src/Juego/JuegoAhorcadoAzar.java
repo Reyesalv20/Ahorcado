@@ -8,54 +8,26 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class JuegoAhorcadoAzar extends JuegoAhorcadoBase {
-    ArrayList<String> definidas;
-    private String palabra;
+    ArrayList<String> definidas; //arraylist de palabras ya existentes
+    private String palabraAdivinar;
 
-    public JuegoAhorcadoAzar(String palabra) {
-        definidas.add("MAÑANA");
-        definidas.add("JUEVES");
-        definidas.add("ALMUERZO");
-        definidas.add("PARAGUAY");
-        definidas.add("GITHUB");
-        definidas.add("BUSCADOR");     
-        definidas.add("TELEGRAFO");
-        definidas.add("RADIO");
-        definidas.add("NIÑERA");
-        definidas.add("SILICONA");
-        this.palabra = palabra;
+    public JuegoAhorcadoAzar(ArrayList<String> definidas) {
+        this.definidas = definidas;
+       
     }
-    public void añadir(String palabra) {
-        definidas.add(palabra);
-        
+
+    public void setPalabraAdivinar(String palabraAdivinar) {
+        this.palabraAdivinar = palabraAdivinar;
     }
-    private int posicionRandom(int min, int max) {
-        Random rand=new Random();
-        return rand.nextInt(max-min+1)+min;
-    }
-    public String palabraAzar(){
-        if(!definidas.isEmpty()){
-            for (int i = 0; i < definidas.size(); i++) {
-                int index = posicionRandom(0,10);
-                return definidas.get(index);
-            }
-        }
-        return "";
-    }
-    @Override
+    
     public String inicializarPalabraSecreta() {
-        if(!definidas.isEmpty()){
-            palabraAzar();
-            for (int i = 0; i < palabraAzar().length(); i++) {
-                return "_";
-            }
-        }
-        return null;
+        Random rand = new Random();
+        return definidas.get(rand.nextInt(0, definidas.size()));
     }
 
     @Override
-    public boolean jugar() {
-        
-        return true;
+    public void jugar() {
+        Swing.azar azar = new Swing.azar(this);
     }
     
 }

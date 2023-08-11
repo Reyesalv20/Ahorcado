@@ -18,6 +18,7 @@ public abstract class JuegoAhorcadoBase implements JuegoAhorcado {
      * @param letra La letra que el usuario ingreso. TIENE QUE ESTAR EN MAYUSCULA.
      * @returns La palabra escondida acorde a las letras adivinadas.
      */
+    
     String actualizarPalabraActual(char letra) {
         if (!verificarLetra(letra)) return palabraActual; // la letra no esta en la lista asi que no se toma la molestia de actualizar.
         

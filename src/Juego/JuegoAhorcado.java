@@ -7,5 +7,5 @@ package Juego;
  */
 public interface JuegoAhorcado {
     String inicializarPalabraSecreta();
-    boolean jugar();
+    void jugar();
 }
