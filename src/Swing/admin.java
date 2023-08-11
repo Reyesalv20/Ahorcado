@@ -18,29 +18,50 @@ public class admin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        confirmar_letra = new javax.swing.JButton();
-        confirmar_letra1 = new javax.swing.JButton();
+        borrar = new javax.swing.JButton();
+        añadir = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listado = new javax.swing.JTextArea();
+        fija = new javax.swing.JButton();
+        menu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        confirmar_letra.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        confirmar_letra.setText("Borrar todo");
-        confirmar_letra.addMouseListener(new java.awt.event.MouseAdapter() {
+        borrar.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        borrar.setText("Borrar palabra");
+        borrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                confirmar_letraMouseClicked(evt);
+                borrarMouseClicked(evt);
             }
         });
 
-        confirmar_letra1.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        confirmar_letra1.setText("Añadir");
-        confirmar_letra1.addMouseListener(new java.awt.event.MouseAdapter() {
+        añadir.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        añadir.setText("Añadir");
+        añadir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                confirmar_letra1MouseClicked(evt);
+                añadirMouseClicked(evt);
+            }
+        });
+
+        listado.setColumns(20);
+        listado.setRows(5);
+        jScrollPane1.setViewportView(listado);
+
+        fija.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        fija.setText("Palabra fija");
+        fija.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fijaMouseClicked(evt);
+            }
+        });
+
+        menu.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        menu.setText("Regresar");
+        menu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuMouseClicked(evt);
             }
         });
 
@@ -48,28 +69,37 @@ public class admin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(413, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(confirmar_letra, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(confirmar_letra1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(99, 99, 99))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(fija, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(borrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(55, 55, 55))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(menu)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(121, 121, 121)
-                .addComponent(confirmar_letra)
-                .addGap(39, 39, 39)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
-                .addComponent(confirmar_letra1)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(borrar)
+                        .addGap(102, 102, 102)
+                        .addComponent(fija)
+                        .addGap(101, 101, 101)
+                        .addComponent(añadir))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(menu)
+                .addGap(17, 17, 17))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -86,13 +116,23 @@ public class admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void confirmar_letraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmar_letraMouseClicked
+    private void borrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarMouseClicked
        
-    }//GEN-LAST:event_confirmar_letraMouseClicked
+    }//GEN-LAST:event_borrarMouseClicked
 
-    private void confirmar_letra1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmar_letra1MouseClicked
+    private void añadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_añadirMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_confirmar_letra1MouseClicked
+    }//GEN-LAST:event_añadirMouseClicked
+
+    private void fijaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fijaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fijaMouseClicked
+
+    private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
+        menu mn = new menu();
+        mn.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -130,9 +170,12 @@ public class admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton confirmar_letra;
-    private javax.swing.JButton confirmar_letra1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton añadir;
+    private javax.swing.JButton borrar;
+    private javax.swing.JButton fija;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea listado;
+    private javax.swing.JButton menu;
     // End of variables declaration//GEN-END:variables
 }
