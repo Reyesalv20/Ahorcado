@@ -15,6 +15,8 @@ public class azar extends javax.swing.JFrame {
         this.juego = juego;
         initComponents();
         juego.inicializarPalabraSecreta();
+        int intentos=juego.intentosRestantes;
+        Intentos.setText("Tienes: "+intentos+" intentos");
         System.out.println(juego.palabraSecreta);
         palabraActualInput.setText(juego.palabraActual);
     }
@@ -29,6 +31,7 @@ public class azar extends javax.swing.JFrame {
         oportunidades = new javax.swing.JLabel();
         letraIngresar = new javax.swing.JTextField();
         palabraActualInput = new javax.swing.JTextField();
+        Intentos = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,7 +47,7 @@ public class azar extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
 
         confirmar_letra.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         confirmar_letra.setText("Ingresar Letra");
@@ -53,18 +56,25 @@ public class azar extends javax.swing.JFrame {
                 confirmar_letraMouseClicked(evt);
             }
         });
-        jPanel1.add(confirmar_letra, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, -1, -1));
+        jPanel1.add(confirmar_letra, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, -1, -1));
         jPanel1.add(oportunidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 170, 204));
 
         letraIngresar.setBackground(new java.awt.Color(102, 102, 0));
         letraIngresar.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
         letraIngresar.setForeground(new java.awt.Color(255, 255, 255));
         letraIngresar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPanel1.add(letraIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, 87, 47));
+        jPanel1.add(letraIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 87, 47));
 
         palabraActualInput.setEditable(false);
         palabraActualInput.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
-        jPanel1.add(palabraActualInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 191, 43));
+        palabraActualInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jPanel1.add(palabraActualInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 191, 43));
+
+        Intentos.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
+        Intentos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Intentos.setText("...");
+        Intentos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(Intentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 360, 700, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juego/Imaganes/2 2.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -97,11 +107,17 @@ public class azar extends javax.swing.JFrame {
             // Verificar si se tiene que quitarle un turno o no
             if (!juego.verificarLetra(letraIngresada)) {
                 juego.intentosRestantes--;
-                
+                JOptionPane.showMessageDialog(null, "No lleva esa letra\nEstas en tu intento #"+ juego.intentosRestantes, "AHORCADO AZAR", JOptionPane.WARNING_MESSAGE);
+                int intentos=juego.intentosRestantes;
+                Intentos.setText("Tienes: "+intentos+" intentos");
+
                 if (juego.intentosRestantes == 0) {
-                JOptionPane.showMessageDialog(null, "Te has quedado sin turnos.\nLa palabra a adivinar era: " + juego.palabraSecreta);
-                dispose();
-                return;
+                    Intentos.setText("PERDISTE");
+                    JOptionPane.showMessageDialog(null, "Te has quedado sin turnos.\nLa palabra a adivinar era: " + juego.palabraSecreta);
+                    menu mn = new menu();
+                    mn.setVisible(true);
+                    this.setVisible(false);
+                    return;
                 }
             }
             
@@ -114,7 +130,9 @@ public class azar extends javax.swing.JFrame {
         
         if (juego.hasGanado()) {
             JOptionPane.showMessageDialog(null, "HAS GANADO!");
-            dispose();
+             menu mn = new menu();
+             mn.setVisible(true);
+             this.setVisible(false);
             return;
         }
                 
@@ -166,6 +184,7 @@ public class azar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Intentos;
     private javax.swing.JButton confirmar_letra;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

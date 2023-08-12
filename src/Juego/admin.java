@@ -8,16 +8,16 @@ import javax.swing.JOptionPane;
 
 public class admin extends javax.swing.JFrame {
 
-
 AdminPalabrasSecretas obj;
-private ArrayList<String> array= obj.getPalabrasecretas();
-String[] opciones = array.toArray(new String[0]);
+
     public admin(AdminPalabrasSecretas obj) {
         initComponents();
-        
-       
-        
-        
+        this.obj = obj;
+        ArrayList<String> array = obj.getPalabrasecretas();
+        String[] opciones = array.toArray(new String[0]);
+        String mostrar = obj.toString();
+        lista.setText(mostrar);
+
     }
 
 
@@ -29,10 +29,13 @@ String[] opciones = array.toArray(new String[0]);
         borrar = new javax.swing.JButton();
         añadir = new javax.swing.JButton();
         fija = new javax.swing.JButton();
-        menu = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lista = new javax.swing.JTextArea();
+        ret = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -44,7 +47,7 @@ String[] opciones = array.toArray(new String[0]);
                 borrarMouseClicked(evt);
             }
         });
-        jPanel1.add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 212, -1));
+        jPanel1.add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 260, -1));
 
         añadir.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         añadir.setText("Añadir Palabra");
@@ -58,7 +61,7 @@ String[] opciones = array.toArray(new String[0]);
                 añadirActionPerformed(evt);
             }
         });
-        jPanel1.add(añadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 212, -1));
+        jPanel1.add(añadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 260, -1));
 
         fija.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         fija.setText("Palabra fija");
@@ -67,16 +70,28 @@ String[] opciones = array.toArray(new String[0]);
                 fijaMouseClicked(evt);
             }
         });
-        jPanel1.add(fija, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 212, -1));
+        jPanel1.add(fija, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 260, -1));
 
-        menu.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
-        menu.setText("Regresar");
-        menu.addMouseListener(new java.awt.event.MouseAdapter() {
+        lista.setEditable(false);
+        lista.setColumns(20);
+        lista.setRows(5);
+        jScrollPane1.setViewportView(lista);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 220));
+
+        ret.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
+        ret.setText("Regresar");
+        ret.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menuMouseClicked(evt);
+                retMouseClicked(evt);
             }
         });
-        jPanel1.add(menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1016, 794, -1, -1));
+        ret.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ret, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 160, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juego/Imaganes/3.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, -1, -1));
@@ -95,31 +110,48 @@ String[] opciones = array.toArray(new String[0]);
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void borrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borrarMouseClicked
 //borrar palabra 
 
     
-   String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,opciones,opciones[0]);
-
-
-     
-
-
-
-
-
-
-
-
-
-
+  // String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,opciones,opciones[0]);
+    if(obj.getPalabrasecretas().isEmpty()){
+        JOptionPane.showMessageDialog(null, "No hay nada datos");
+        menu mn = new menu();
+        mn.setVisible(true);
+        this.setVisible(false); 
+    }
+    String indexB = JOptionPane.showInputDialog("Selecciona la palabra que deseas borrar:");
+        try {
+           int indice = Integer.parseInt(indexB+1);
+           if (indice>=0 && indice<obj.getPalabrasecretas().size()) {
+               String palabraBorrada = obj.getPalabrasecretas().remove(indice);
+               JOptionPane.showMessageDialog(null, "Palabra *" +palabraBorrada+ "* ha sido borrada");
+               lista.setText(obj.toString());
+           } else {
+               JOptionPane.showMessageDialog(null, "Indice no permitido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);
+           }
+       } catch (NumberFormatException e) {
+           JOptionPane.showMessageDialog(null, "Ingrese numero","ERROR",JOptionPane.ERROR);
+       }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese numero","ERROR",JOptionPane.ERROR);
+       }
+ 
 
     }//GEN-LAST:event_borrarMouseClicked
 
     private void añadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_añadirMouseClicked
-        // TODO add your handling code here:
+        String nPalabra = JOptionPane.showInputDialog("Ingresa una nueva palabra:");
+        if (nPalabra != null && !nPalabra.isEmpty() && nPalabra.length()>=2) {
+            obj.agregarpalabras(nPalabra);
+            JOptionPane.showMessageDialog(null, "Palabra añadida","Añadida",JOptionPane.INFORMATION_MESSAGE);
+            lista.setText(obj.toString());
+        }else{
+            JOptionPane.showMessageDialog(null, "Añada una palabra valida","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_añadirMouseClicked
 
     private void fijaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fijaMouseClicked
@@ -127,19 +159,23 @@ String[] opciones = array.toArray(new String[0]);
         
  
    
-    String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,opciones,opciones[0]);
+//    String opcion =(String)JOptionPane.showInputDialog(null,"Selecciona la palabra que deseas borrar:", "Elegir",JOptionPane.QUESTION_MESSAGE,null,opciones,opciones[0]);
         
     }//GEN-LAST:event_fijaMouseClicked
-
-    private void menuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuMouseClicked
-        menu mn = new menu();
-        mn.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_menuMouseClicked
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_añadirActionPerformed
+
+    private void retMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_retMouseClicked
+        menu mn = new menu();
+        mn.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_retMouseClicked
+
+    private void retActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_retActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +218,8 @@ String[] opciones = array.toArray(new String[0]);
     private javax.swing.JButton fija;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton menu;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea lista;
+    private javax.swing.JButton ret;
     // End of variables declaration//GEN-END:variables
 }

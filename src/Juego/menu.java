@@ -22,7 +22,7 @@ public class menu extends javax.swing.JFrame {
         todas.add("PIZZA");
         todas.add("ESTOCOLMO");
         todas.add("GITHUB");
-        todas.add("PANTALLA");
+        todas.add("MOCHILA");
         JuegoAhorcadoAzar ja=new JuegoAhorcadoAzar(todas);
         System.out.println(todas);
     }                               
@@ -52,7 +52,7 @@ public class menu extends javax.swing.JFrame {
                 azarMouseClicked(evt);
             }
         });
-        jPanel1.add(azar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
+        jPanel1.add(azar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         fijo.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         fijo.setText("Jugar Modo Fijo");
@@ -61,7 +61,7 @@ public class menu extends javax.swing.JFrame {
                 fijoMouseClicked(evt);
             }
         });
-        jPanel1.add(fijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+        jPanel1.add(fijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
 
         admin.setFont(new java.awt.Font("OCR A Extended", 0, 24)); // NOI18N
         admin.setText("Administrar");
@@ -70,7 +70,7 @@ public class menu extends javax.swing.JFrame {
                 adminMouseClicked(evt);
             }
         });
-        jPanel1.add(admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
+        jPanel1.add(admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 15, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Juego/Imaganes/1.png"))); // NOI18N
@@ -108,8 +108,10 @@ public class menu extends javax.swing.JFrame {
     }//GEN-LAST:event_fijoMouseClicked
 
     private void adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminMouseClicked
-       AdminPalabrasSecretas as=new AdminPalabrasSecretas(todas);
+        AdminPalabrasSecretas as = new AdminPalabrasSecretas(todas);
         admin ad = new admin(as);
+        ad.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_adminMouseClicked
 
     /**

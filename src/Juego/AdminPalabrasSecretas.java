@@ -7,11 +7,9 @@ public class AdminPalabrasSecretas {
   
    ArrayList<String> Palabrasecretas;  
    
-   public AdminPalabrasSecretas(ArrayList<String> Palabrasecretas){
-       
-       
-       
-   }
+    public AdminPalabrasSecretas(ArrayList<String> Palabrasecretas) {
+        this.Palabrasecretas = Palabrasecretas;
+    }
 
     public ArrayList<String> getPalabrasecretas() {
         return Palabrasecretas;
@@ -36,5 +34,15 @@ public class AdminPalabrasSecretas {
         }
        
     }
- 
-}
+    @Override
+    public String toString() {
+        String result="";
+        int num=1;
+        for (String palabra : Palabrasecretas) {
+            result += num + "-" + palabra + "\n";
+            num++;
+        }
+        return result;
+    }
+    
+ }
